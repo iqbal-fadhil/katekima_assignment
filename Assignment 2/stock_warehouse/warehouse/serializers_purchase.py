@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models_purchase import PurchaseHeader, PurchaseDetail
-from myapi.models_item import Item
+from .models_item import Item
 
 class PurchaseHeaderSerializer(serializers.ModelSerializer):
     class Meta:

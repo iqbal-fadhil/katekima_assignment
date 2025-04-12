@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from .models_purchase import PurchaseHeader, PurchaseDetail
-from myapi.models_item import Item
+from .models_item import Item
 from .serializers_purchase import PurchaseHeaderSerializer, PurchaseDetailSerializer
 
 class PurchaseHeaderListCreateView(APIView):
