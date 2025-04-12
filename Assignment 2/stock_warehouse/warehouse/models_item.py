@@ -1,6 +1,7 @@
 from django.db import models
+from .models_base import BaseModel
 
-class Item(models.Model):
+class Item(BaseModel):
     code = models.CharField(max_length=50, unique=True)
     name = models.CharField(max_length=100)
     unit = models.CharField(max_length=20)
