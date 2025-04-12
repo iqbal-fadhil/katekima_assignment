@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+from .models_base import BaseModel
 from .models_item import Item
 from .models_purchase import PurchaseHeader, PurchaseDetail
 from .models_sell import SellDetail, SellHeader
