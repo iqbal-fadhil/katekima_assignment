@@ -1,7 +1,8 @@
 from django.db import models
 from .models_item import Item
+from .models_base import BaseModel
 
-class PurchaseHeader(models.Model):
+class PurchaseHeader(BaseModel):
     code = models.CharField(max_length=50, unique=True)
     date = models.DateField()
     description = models.TextField(blank=True)
@@ -10,7 +11,7 @@ class PurchaseHeader(models.Model):
     def __str__(self):
         return self.code
 
-class PurchaseDetail(models.Model):
+class PurchaseDetail(BaseModel):
     header = models.ForeignKey(PurchaseHeader, related_name='details', on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.FloatField()
