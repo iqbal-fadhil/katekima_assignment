@@ -1,11 +1,12 @@
 from pylfsr import LFSR
 
-# Konfigurasi sama: size = 4, feedback polynomial (tap) di posisi 4 dan 1
+# Initialization for LFSR 
 lfsr = LFSR(fpoly=[4, 1], initstate=[0, 1, 1, 0])
-print("General LFSR menggunakan pylfsr:")
+print("General LFSR with pylfsr:")
 
-# Reset ke state awal jika mau diulang
-lfsr.set(fpoly=[4, 1], initstate=[0, 1, 1, 0])
+# Reset 
+lfsr.set_fpoly([4, 1])
+lfsr.set_state([0, 1, 1, 0])
 
 for i in range(20):
     state = ''.join(map(str, lfsr.state))
