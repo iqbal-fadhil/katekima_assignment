@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from .models_item import Item
 from .serializers_item import ItemSerializer
 
+# This is the List and Create view for Item
 class ItemListCreateView(APIView):
     def get(self, request):
         items = Item.objects.filter(is_deleted=False)
@@ -18,6 +19,7 @@ class ItemListCreateView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# This is the Detail view for Item
 class ItemDetailView(APIView):
     def get_object(self, code):
         return get_object_or_404(Item, code=code, is_deleted=False)

@@ -2,6 +2,7 @@ from django.db import models
 from .models_item import Item
 from .models_base import BaseModel
 
+# This is Sale models with BaseModel inheritance.
 class SellHeader(BaseModel):
     code = models.CharField(max_length=20, unique=True)
     date = models.DateField()

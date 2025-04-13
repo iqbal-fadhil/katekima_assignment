@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models_purchase import PurchaseHeader, PurchaseDetail
 from .models_item import Item
 
+#This is serializer for the Purchase models.
 class PurchaseHeaderSerializer(serializers.ModelSerializer):
     class Meta:
         model = PurchaseHeader

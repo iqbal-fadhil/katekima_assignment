@@ -2,10 +2,12 @@ from rest_framework import generics
 from .models_sell import SellHeader, SellDetail
 from .serializers_sell import SellHeaderSerializer, SellDetailSerializer
 
+# This is the List and Create view for Sale
 class SellHeaderListCreateView(generics.ListCreateAPIView):
     queryset = SellHeader.objects.filter(is_deleted=False)
     serializer_class = SellHeaderSerializer
 
+# This is the Detail view for Sale Header
 class SellHeaderDetailView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'code'
     serializer_class = SellHeaderSerializer
@@ -17,6 +19,7 @@ class SellHeaderDetailView(generics.RetrieveUpdateDestroyAPIView):
         instance.is_deleted = True
         instance.save()
 
+# This is the List and Create view for Sale Detail
 class SellDetailListCreateView(generics.ListCreateAPIView):
     serializer_class = SellDetailSerializer
 

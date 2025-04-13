@@ -8,6 +8,7 @@ from .models_item import Item
 from .models_purchase import PurchaseHeader, PurchaseDetail
 from .models_sell import SellHeader, SellDetail
 
+#This is the stock report view
 class StockReportView(APIView):
     def get(self, request, item_code):
         start_date_str = request.GET.get("start_date")

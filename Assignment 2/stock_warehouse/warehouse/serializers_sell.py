@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models_sell import SellHeader, SellDetail
 from .models_item import Item
 
+#This is serializer for the Sale models.
 class SellHeaderSerializer(serializers.ModelSerializer):
     class Meta:
         model = SellHeader

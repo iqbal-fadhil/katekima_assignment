@@ -2,6 +2,7 @@ from django.db import models
 from .models_item import Item
 from .models_base import BaseModel
 
+# This is Purchasing models with BaseModel inheritance.
 class PurchaseHeader(BaseModel):
     code = models.CharField(max_length=50, unique=True)
     date = models.DateField()

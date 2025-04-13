@@ -6,6 +6,7 @@ from .models_purchase import PurchaseHeader, PurchaseDetail
 from .models_item import Item
 from .serializers_purchase import PurchaseHeaderSerializer, PurchaseDetailSerializer
 
+# This is the List and Create view for Purchase
 class PurchaseHeaderListCreateView(APIView):
     def get(self, request):
         headers = PurchaseHeader.objects.filter(is_deleted=False)
@@ -19,6 +20,7 @@ class PurchaseHeaderListCreateView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# This is the Detail view for Purchase
 class PurchaseHeaderDetailView(APIView):
     def get_object(self, code):
         return get_object_or_404(PurchaseHeader, code=code, is_deleted=False)
@@ -42,6 +44,7 @@ class PurchaseHeaderDetailView(APIView):
         header.save()
         return Response({'detail': f'Purchase {code} soft-deleted.'}, status=status.HTTP_204_NO_CONTENT)
 
+# This is the List and Create view for Purchase Detail
 class PurchaseDetailListCreateView(APIView):
     def get(self, request, header_code):
         header = get_object_or_404(PurchaseHeader, code=header_code, is_deleted=False)
