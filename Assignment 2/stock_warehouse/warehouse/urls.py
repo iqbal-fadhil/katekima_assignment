@@ -13,6 +13,7 @@ from .views_sell import (
     SellHeaderDetailView, 
     SellDetailListCreateView
 )
+from .views_report import StockReportView
 
 
 urlpatterns = [
@@ -28,5 +29,8 @@ urlpatterns = [
     # Sales
     path('sell/', SellHeaderListCreateView.as_view(), name='sell-list-create'),
     path('sell/<str:code>/', SellHeaderDetailView.as_view(), name='sell-detail'),
-    path('sell/<str:header_code>/details/', SellDetailListCreateView.as_view(), name='sell-details'),     
+    path('sell/<str:header_code>/details/', SellDetailListCreateView.as_view(), name='sell-details'),    
+
+    # Report
+    path('report/<str:item_code>/', StockReportView.as_view(), name='report-by-item'),     
 ]
