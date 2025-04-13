@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "4b1870df-8149-4ffb-8407-96616f41a9fd",
+		"name": "Katekima BE Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40486194"
+	},
+	"item": [
+		{
+			"name": "get all items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "127.0.0.1:8000/items/"
+			},
+			"response": []
+		},
+		{
+			"name": "get an item with corresponding code on params",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "127.0.0.1:8000/items/I-001/"
+			},
+			"response": []
+		},
+		{
+			"name": "create an item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"code\": \"I-001\",\n  \"name\": \"History Book\",\n  \"unit\": \"Pcs\",\n  \"description\": \"Books that tells history of the ancient\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1:8000/items/"
+			},
+			"response": []
+		},
+		{
+			"name": "update an item",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Books that tells history of the ancient story\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1:8000/items/I-001/"
+			},
+			"response": []
+		},
+		{
+			"name": "soft delete item",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "127.0.0.1:8000/items/I-002/"
+			},
+			"response": []
+		},
+		{
+			"name": "get all purchases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "127.0.0.1:8000/purchase/"
+			},
+			"response": []
+		},
+		{
+			"name": "get a purchase with corresponding code on params",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "127.0.0.1:8000/purchase/P-001/"
+			},
+			"response": []
+		},
+		{
+			"name": "create a purchase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"code\": \"P-001\",\n  \"date\": \"2025-01-01\",\n  \"description\": \"Buy history books\",\n  \"details\": [\n    {\n      \"item_code\": \"I-001\",\n      \"quantity\": 10,\n      \"unit_price\": 60000,\n      \"header_code\": \"P-001\"\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1:8000/purchase/"
+			},
+			"response": []
+		},
+		{
+			"name": "get a purchase with corresponding code on params Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Buy history books\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1:8000/purchase/P-001/"
+			},
+			"response": []
+		},
+		{
+			"name": "soft delete purchase",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1:8000/purchase/P-003/"
+			},
+			"response": []
+		},
+		{
+			"name": "get all purchases detail with corresponding header code on params",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "127.0.0.1:8000/purchase/P-001/details/"
+			},
+			"response": []
+		},
+		{
+			"name": "create purchases detail with corresponding header code on params.",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"item_code\": \"I-001\",\n  \"quantity\": 10,\n  \"unit_price\": 60000\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1:8000/purchase/P-001/details/"
+			},
+			"response": []
+		},
+		{
+			"name": "get all sells",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "127.0.0.1:8000/sell/"
+			},
+			"response": []
+		},
+		{
+			"name": "get a sell with corresponding code on params",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "127.0.0.1:8000/sell/1/"
+			},
+			"response": []
+		},
+		{
+			"name": "create a sell",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"code\": \"S-001\",\n  \"date\": \"2025-03-01\",\n  \"description\": \"Sell history books to library\",\n  \"details\": [\n    {\n      \"item_code\": \"I-001\",\n      \"quantity\": 15,\n      \"header_code\": \"S-001\"\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1:8000/sell/"
+			},
+			"response": []
+		},
+		{
+			"name": "update a sell",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Sell history books to library updated\",\n    \"code\": \"S-001\",\n    \"date\": \"2025-03-01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1:8000/sell/S-001/"
+			},
+			"response": []
+		},
+		{
+			"name": "soft delete sell",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "127.0.0.1:8000/sell/S-002/"
+			},
+			"response": []
+		},
+		{
+			"name": "get all sells detail with corresponding header code on params",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "127.0.0.1:8000/sell/S-001/details/"
+			},
+			"response": []
+		},
+		{
+			"name": "create sell detail with corresponding header code on params",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"item_code\": \"I-001\",\n  \"quantity\": 10,\n  \"header_code\": \"S-001\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "127.0.0.1:8000/sell/S-001/details/"
+			},
+			"response": []
+		},
+		{
+			"name": "Get a report with corresponding item code.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/report/I-001/?start_date=2025-04-01&end_date=2025-04-30",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"report",
+						"I-001",
+						""
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-04-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-04-30"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
